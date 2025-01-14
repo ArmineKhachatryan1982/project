@@ -9,7 +9,7 @@
         <meta content="" name="description">
 
          <!-- Favicon -->
-    <link href="{{ asset('img/favicon.ico') }}" rel="icon">
+    {{-- <link href="{{ asset('img/favicon.ico') }}" rel="icon"> --}}
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -34,7 +34,7 @@
         {{-- @vite([ 'resources/js/app.js']) --}}
     </head>
 
-    <body>
+    <body class="page-template page-template-demo page-template-demo-php page page-id-25 wp-embed-responsive chrome gridlove-cover-overlay-off gridlove-v_1_9_8 gridlove-child">
         <div id="app">
 
 
