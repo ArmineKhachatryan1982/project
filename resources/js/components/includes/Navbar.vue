@@ -62,8 +62,10 @@
                         <router-link  class="dropdown-item" :to="{name:'appointment.index'}">Appointment</router-link>
                     </div>
                 </div>
-            
+
                 <router-link class="nav-item nav-link"  :to="{name:'contact.index'}">Contact</router-link>
+                <router-link class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
+                <router-link class="nav-item nav-link"  :to="{name:'calendar.index'}">Calendar</router-link>
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
 

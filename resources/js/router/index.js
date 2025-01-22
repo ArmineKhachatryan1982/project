@@ -8,6 +8,8 @@ import PriceIndex from '../views/price/Index.vue'
 import TеаmIndex from '../views/team/Index.vue'
 import ContactIndex from '../views/contact/Index.vue'
 import ServiceIndex from '../views/service/Index.vue'
+import RegisterIndex from '../views/registration/Index.vue'
+import CalendarIndex from '../views/calendar/Index.vue'
 
 
 
@@ -65,6 +67,22 @@ const HomeRoutes = [
             name:'contact.index',
             component:ContactIndex
         }
+    ];
+    const RegisterRoutes = [
+
+        {
+            path:'/register',
+            name:'register.index',
+            component:RegisterIndex
+        }
+    ]
+    const CalendarRoutes = [
+
+        {
+            path:'/calendar',
+            name:'calendar.index',
+            component:CalendarIndex
+        }
     ]
     // const notFoundRoutes = [
     //     {
@@ -86,6 +104,8 @@ const HomeRoutes = [
                 ...TеаmRoutes,
                 ...ContactRoutes,
                 ...ServiceRoutes,
+                ...RegisterRoutes,
+                ...CalendarRoutes,
 
                 // ...notFoundRoutes
             ]
