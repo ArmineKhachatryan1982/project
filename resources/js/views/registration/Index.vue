@@ -1,6 +1,7 @@
 <script setup>
 import {reactive,ref} from "vue";
 import {useRouter} from "vue-router";
+import axios from "axios";
 
 const router =useRouter()
 let errors = ref([])
@@ -11,9 +12,16 @@ const form = reactive({
     phone:"",
     email:"",
     password:"",
+    // password_confirmation:'',
 })
 const register = async()=>{
     try{
+        // console.log(form)
+        const response = await axios.post('/register', form);
+    // localStorage.setItem('access_token', response.data.access_token);
+
+
+
 
     }catch(error){
 
@@ -62,16 +70,16 @@ const register = async()=>{
                                     <input v-model="form.surname"  type="text" class="form-control bg-light border-0" placeholder="Your SurName" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input v-model="form.phone"  type="text" class="form-control bg-light border-0" placeholder="Your SurName" style="height: 55px;">
+                                    <input v-model="form.phone"  type="text" class="form-control bg-light border-0" placeholder="Your phone" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <input  v-model="form.email" type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input  v-model="form.password" type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                             <div class="col-12 col-sm-6">
+                                    <input  v-model="form.password" type="password" class="form-control bg-light border-0" placeholder="password" style="height: 55px;">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input  v-model="form.password" type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;">
+                                   <div class="col-12 col-sm-6">
+                                    <input  v-model="form.password_confirmation" type="password" class="form-control bg-light border-0" placeholder="password-confirmation" style="height: 55px;">
                                 </div>
                                 <!-- <div class="col-12 col-sm-6">
                                     <div class="date" id="date1" data-target-input="nearest">
@@ -80,13 +88,13 @@ const register = async()=>{
                                             placeholder="Appointment Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;">
                                     </div>
                                 </div> -->
-                                <div class="col-12 col-sm-6">
+                                <!-- <div class="col-12 col-sm-6">
                                     <div class="time" id="time1" data-target-input="nearest">
                                         <input type="text"
                                             class="form-control bg-light border-0 datetimepicker-input"
                                             placeholder="Appointment Time" data-target="#time1" data-toggle="datetimepicker" style="height: 55px;">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit" @click.prevent = "register">Register</button>
                                 </div>
