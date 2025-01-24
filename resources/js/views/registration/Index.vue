@@ -14,18 +14,18 @@ const form = reactive({
     password:"",
     // password_confirmation:'',
 })
-const register = async()=>{
-    try{
-        // console.log(form)
-        const response = await axios.post('/register', form);
-    // localStorage.setItem('access_token', response.data.access_token);
+ const register = async()=>{
+     try{
+         // console.log(form)
+         const response = await axios.post('api/registration', form);
+     // localStorage.setItem('access_token', response.data.access_token);
 
 
 
 
     }catch(error){
 
-    }
+   }
 
 }
 

@@ -1,17 +1,10 @@
 <?php
 
-use App\Http\Controllers\API\Auth\RegisterController as AuthRegisterController;
-use App\Http\Controllers\Auth\RegisterController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\API\Auth\RegisterController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'api'], function ($router) {
-
- Route::post('/register',[RegisterController::class,'register']);
-//  Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-//     $request->fulfill();
-
-//     return redirect('/home');
-// })->middleware(['auth', 'signed'])->name('verification.verify');
-// Route::post('/register',[AuthRegisterController::class,'register']);
-});
+// Route::get('/user', function (Request $request) {
+//     return $request->user();
+// })->middleware('auth:sanctum');
+Route::post('/registration',[RegisterController::class,'register']);

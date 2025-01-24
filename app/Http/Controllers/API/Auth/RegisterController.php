@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\API\Auth;
 
+use App\DTO\RegisterDto;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
+use App\Models\User;
+use App\Services\RegisterService;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -10,17 +15,24 @@ class RegisterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function __construct( protected RegisterService $registerService)
     {
-        //
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function register(RegisterRequest $request)
     {
-        //
+
+
+        // $user = User::create($request->all());
+        // dd(RegisterDto::fromRequestDto($request));
+        $data = $this->registerService->storeRegister(RegisterDto::fromRequestDto($request));
+
+        //  event(new Registered($user));
+        //  return response()->json($user,200);
     }
 
     /**
