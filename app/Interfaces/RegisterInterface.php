@@ -3,6 +3,6 @@ namespace App\Interfaces;
 
 interface RegisterInterface
 {
-    public function register();
+    public function register($data);
 }
 

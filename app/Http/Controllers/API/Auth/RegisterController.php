@@ -32,7 +32,7 @@ class RegisterController extends Controller
         $data = $this->registerService->storeRegister(RegisterDto::fromRequestDto($request));
 
         //  event(new Registered($user));
-        //  return response()->json($user,200);
+         return response()->json(  $data,200);
     }
 
     /**
