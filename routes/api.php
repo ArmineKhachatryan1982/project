@@ -9,4 +9,10 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 Route::post('/registration',[RegisterController::class,'register']);
-Route::get('email/verify/{id}', [VerificationController::class,'verify'])->name('verification.verify');
+
+// Отправить повторное письмо для верификации
+// Route::post('/email/resend', function (Request $request) {
+//     $request->user()->sendEmailVerificationNotification();
+//     return response()->json(['message' => 'Email verification link sent.']);
+// })->middleware('auth:api');
+// Route::get('email/verify/{id}', [VerificationController::class,'verify'])->name('verification.verify');

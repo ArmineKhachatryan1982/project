@@ -13,8 +13,8 @@ use Illuminate\Auth\Events\Registered;
         $user = User::create($data);
         // dd($user);
         if($user){
-            // $user->sendEmailVerificationNotification();
-            // event(new Registered($user));
+
+
             event(new Registered($user));
             return $user;
         }

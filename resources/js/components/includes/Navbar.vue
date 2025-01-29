@@ -1,3 +1,10 @@
+<script setup>
+import { ref, onMounted, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import api, { initApi } from "../../api";
+import {me} from "../../me";
+
+</script>
 <template>
     <!-- Spinner Start -->
     <!-- <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">

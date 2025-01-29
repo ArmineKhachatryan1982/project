@@ -26,12 +26,8 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
 
-
-        // $user = User::create($request->all());
-        // dd(RegisterDto::fromRequestDto($request));
         $data = $this->registerService->storeRegister(RegisterDto::fromRequestDto($request));
 
-        //  event(new Registered($user));
          return response()->json(  $data,200);
     }
 
