@@ -1,8 +1,16 @@
 <script setup>
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import api, { initApi } from "../../api";
 import {me} from "../../me";
+
+const router = useRouter();
+const {userMe} = me(router)
+
+const isAuthenticated = computed(() => !!userMe)
+
+const isEmailVerified = computed(() => isAuthenticated.value && userMe.value.email_verified_at !== null);
+console.log(isEmailVerified)
 
 </script>
 <template>
@@ -26,7 +34,7 @@ import {me} from "../../me";
         <div class="row gx-0">
             <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Tues : 6.00 am - 10.00 pm, Sunday Closed </small>
+                    <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Tues : 6.00 am - 10.00 pm, Sunday Closed{{ userMe.name }}  {{ userMe?.email_verified_at }}</small>
                 </div>
             </div>
             <div class="col-md-6 text-center text-lg-end">
@@ -57,7 +65,7 @@ import {me} from "../../me";
             <div class="navbar-nav ms-auto py-0">
                 <router-link class="nav-item nav-link" :to="{name:'home.index'}">Home</router-link>
                 <!-- <a href="index.html" class="nav-item nav-link active">Home</a> -->
-                <router-link  class="nav-item nav-link" :to="{name: 'about.index'}">About</router-link>
+                <router-link   class="nav-item nav-link" :to="{name: 'about.index'}">About</router-link>
 
                  <router-link class="nav-item nav-link" :to="{name:'service.index'}" >Service</router-link>
 
@@ -71,7 +79,8 @@ import {me} from "../../me";
                 </div>
 
                 <router-link class="nav-item nav-link"  :to="{name:'contact.index'}">Contact</router-link>
-                <router-link class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
+                <router-link v-if="!isAuthenticated" class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
+                <router-link v-if="userMe?.email_verified_at != null" class="nav-item nav-link"  :to="{name:'login.index'}">Login</router-link>
                 <router-link class="nav-item nav-link"  :to="{name:'calendar.index'}">Calendar</router-link>
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>

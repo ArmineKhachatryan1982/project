@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
@@ -19,9 +20,13 @@ class VerificationController extends Controller
      */
     public function verify(Request $request)
     {
+          $user = User::findOrFail($request->route('id'));
 
-    auth()->loginUsingId($request->route('id'));
-   
+        // Устанавливаем пользователя в текущий guard (JWT)
+           auth()->setUser($user);
+
+
+
             if ($request->route('id') != $request->user()->getKey()) {
 
                 throw new AuthorizationException;
@@ -43,6 +48,7 @@ class VerificationController extends Controller
     // return $request->wantsJson()
     //     ? response()->json(['message' => 'Email verified successfully'], 200)
     //     : redirect('http://gorc-ka.am');
-    return response()->json(['message' => 'Email verified successfully'], 200);
+    return redirect('http://127.0.0.1:8000');
+    // return response()->json(['message' => 'Email verified successfully'], 200);
 }
 }
