@@ -1,3 +1,10 @@
+<script setup>
+
+
+</script>
 <template>
-    aaaaaaaaaaaaaa
+     <div>
+        <h2>Мой календарь</h2>
+        <FullCalendar />
+    </div>
 </template>

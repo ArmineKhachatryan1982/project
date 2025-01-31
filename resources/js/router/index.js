@@ -11,9 +11,7 @@ import ServiceIndex from '../views/service/Index.vue'
 import RegisterIndex from '../views/registration/Index.vue'
 import CalendarIndex from '../views/calendar/Index.vue'
 import LoginIndex from '../views/auth/Login.vue'
-
-
-
+import ProfileIndex from '../views/profile/Index.vue'
 
 
 
@@ -85,6 +83,14 @@ const HomeRoutes = [
             component:LoginIndex
         }
     ]
+    const ProfileRoutes = [
+
+        {
+            path:'/profile',
+            name:'profile.index',
+            component:ProfileIndex
+        }
+    ]
     const CalendarRoutes = [
 
         {
@@ -116,6 +122,7 @@ const HomeRoutes = [
                 ...RegisterRoutes,
                 ...CalendarRoutes,
                 ...LoginRoutes,
+                ...ProfileRoutes,
 
                 // ...notFoundRoutes
             ]

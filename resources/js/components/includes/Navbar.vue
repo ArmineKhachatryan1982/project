@@ -65,7 +65,7 @@ console.log(isEmailVerified)
             <div class="navbar-nav ms-auto py-0">
                 <router-link class="nav-item nav-link" :to="{name:'home.index'}">Home</router-link>
                 <!-- <a href="index.html" class="nav-item nav-link active">Home</a> -->
-                <router-link   class="nav-item nav-link" :to="{name: 'about.index'}">About</router-link>
+                <router-link    class="nav-item nav-link" :to="{name: 'about.index'}">About</router-link>
 
                  <router-link class="nav-item nav-link" :to="{name:'service.index'}" >Service</router-link>
 
@@ -79,8 +79,12 @@ console.log(isEmailVerified)
                 </div>
 
                 <router-link class="nav-item nav-link"  :to="{name:'contact.index'}">Contact</router-link>
-                <router-link v-if="!isAuthenticated" class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
-                <router-link v-if="userMe?.email_verified_at != null" class="nav-item nav-link"  :to="{name:'login.index'}">Login</router-link>
+                <router-link  v-if = "!isAuthenticated" class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
+                <router-link  v-if = "!isAuthenticated" class="nav-item nav-link"  :to="{name:'login.index'}">Login</router-link>
+                <router-link v-if = "isAuthenticated"  class="nav-item nav-link"  :to="{name:'login.index'}">Logout</router-link>
+                <router-link v-if = "isAuthenticated"  class="nav-item nav-link"  :to="{name:'profile.index'}">profile</router-link>
+
+
                 <router-link class="nav-item nav-link"  :to="{name:'calendar.index'}">Calendar</router-link>
             </div>
             <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>

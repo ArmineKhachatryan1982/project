@@ -18,7 +18,7 @@ const form = reactive({
      try{
          // console.log(form)
          const response = await axios.post('api/registration', form);
-     // localStorage.setItem('access_token', response.data.access_token);
+ 
 
 
 

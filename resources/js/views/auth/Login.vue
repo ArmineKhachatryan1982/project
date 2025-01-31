@@ -17,8 +17,20 @@ const form = reactive({
 
          const response = await axios.post('api/auth/login', form);
 
-        localStorage.setItem('access_token', response.data.access_token);
-        window.location.href = '/about';
+         if(response.data.message=="verify your email"){
+            router.push('/')
+
+            toast.fire({icon:"success",title:"Подтвердите свой адрес электронной почты для входа в систему."})
+
+         }else{
+
+             localStorage.setItem('access_token', response.data.access_token);
+             router.push('/about')
+           
+
+
+         }
+
 
 
     }catch(error){

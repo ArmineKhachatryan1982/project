@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\User;
+
 
 class AuthController extends Controller
 {
@@ -24,8 +26,16 @@ class AuthController extends Controller
      */
     public function login()
     {
+
         $credentials = request(['email', 'password']);
 
+        $user = User::where('email',$credentials['email'])->first();
+        if($user){
+            if($user->email_verified_at == null){
+
+                return response()->json(['message'=>"verify your email"]);
+            }
+        }
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -42,7 +52,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-  
+       
         return response()->json(auth()->user());
     }
 
