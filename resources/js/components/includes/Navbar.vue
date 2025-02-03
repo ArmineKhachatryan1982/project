@@ -10,7 +10,7 @@ const {userMe} = me(router)
 const isAuthenticated = computed(() => !!userMe)
 
 const isEmailVerified = computed(() => isAuthenticated.value && userMe.value.email_verified_at !== null);
-console.log(isEmailVerified)
+console.log(isEmailVerified,'77777')
 
 </script>
 <template>
@@ -79,9 +79,9 @@ console.log(isEmailVerified)
                 </div>
 
                 <router-link class="nav-item nav-link"  :to="{name:'contact.index'}">Contact</router-link>
-                <router-link  v-if = "!isAuthenticated" class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
-                <router-link  v-if = "!isAuthenticated" class="nav-item nav-link"  :to="{name:'login.index'}">Login</router-link>
-                <router-link v-if = "isAuthenticated"  class="nav-item nav-link"  :to="{name:'login.index'}">Logout</router-link>
+                <router-link  v-if = "!userMe" class="nav-item nav-link"  :to="{name:'register.index'}">Register</router-link>
+                <router-link  v-if = "!userMe" class="nav-item nav-link"  :to="{name:'login.index'}">Login</router-link>
+                <router-link v-if = "userMe"  class="nav-item nav-link"  :to="{name:'login.index'}">Logout</router-link>
                 <router-link v-if = "isAuthenticated"  class="nav-item nav-link"  :to="{name:'profile.index'}">profile</router-link>
 
 

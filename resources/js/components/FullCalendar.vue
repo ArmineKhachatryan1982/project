@@ -16,6 +16,7 @@ const calendarOptions = ref({
         { title: "Событие 2", start: "2024-02-05", end: "2024-02-07" },
     ],
     dateClick: (info) => {
+       
         alert(`Вы кликнули на ${info.dateStr}`);
     },
     eventClick: (info) => {

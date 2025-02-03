@@ -21,8 +21,8 @@ window.toast = toast
 
 // createApp(app).use(router).mount("#app")
 
-const app = createApp(App);
-app.use(router);
-app.component('FullCalendar', FullCalendar);
-app.mount("#app");
+const myApp = createApp(app);
+myApp.use(router);
+myApp.component('FullCalendar', FullCalendar);
+myApp.mount("#app");
 

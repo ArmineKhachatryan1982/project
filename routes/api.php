@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AttendanceSheet\AttendanceSheetController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\Auth\VerificationController;
 use App\Http\Controllers\AuthController;
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
         Route::post('me', [AuthController::class,'me']);
 
     });
+    Route::get('/attendance',[AttendanceSheetController::class,'index'] );
 
